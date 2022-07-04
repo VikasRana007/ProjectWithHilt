@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">NewsApiClient</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="news_fragment">News Fragment</string>
+    <string name="saved_fragment">Saved Fragment</string>
+    <string name="info_fragment">Info Fragment</string>
+    <string name="description">DESCRIPTION</string>
+</resources>
