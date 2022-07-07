@@ -3,6 +3,7 @@ package com.learning.newsapiclient.presentation.di
 import android.app.Application
 import com.learning.newsapiclient.domain.usecase.GetNewsHeadLinesUseCase
 import com.learning.newsapiclient.domain.usecase.GetSearchedNewsUseCase
+import com.learning.newsapiclient.domain.usecase.SaveNewsUseCase
 import com.learning.newsapiclient.presentation.viewmodel.NewsViewModelFactory
 import dagger.Module
 import dagger.Provides
@@ -19,8 +20,9 @@ class FactoryModule {
     fun provideNewsViewModelFactory(
         application: Application,
         getNewsHeadLinesUseCase: GetNewsHeadLinesUseCase,
-        getSearchedNewsUseCase: GetSearchedNewsUseCase
+        getSearchedNewsUseCase: GetSearchedNewsUseCase,
+        saveNewsUseCase: SaveNewsUseCase
     ): NewsViewModelFactory {
-        return NewsViewModelFactory(application, getNewsHeadLinesUseCase, getSearchedNewsUseCase)
+        return NewsViewModelFactory(application, getNewsHeadLinesUseCase, getSearchedNewsUseCase,saveNewsUseCase)
     }
 }

@@ -9,9 +9,11 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.learning.newsapiclient.data.model.APIResponse
+import com.learning.newsapiclient.data.model.Article
 import com.learning.newsapiclient.data.util.Resource
 import com.learning.newsapiclient.domain.usecase.GetNewsHeadLinesUseCase
 import com.learning.newsapiclient.domain.usecase.GetSearchedNewsUseCase
+import com.learning.newsapiclient.domain.usecase.SaveNewsUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -19,6 +21,7 @@ class NewsViewModel(
     private val app: Application,
     private val getNewsHeadLinesUseCase: GetNewsHeadLinesUseCase,
     private val getSearchedNewsUseCase: GetSearchedNewsUseCase,
+    private val saveNewsUseCase: SaveNewsUseCase
 ) : AndroidViewModel(app) {
     // in this class we are to write a function to get the list of news headlines.
     // we will get it as a mutable live data of type Resource
@@ -83,5 +86,10 @@ class NewsViewModel(
         }
         return false
 
+    }
+
+    // local data base
+     fun saveArticle(article: Article) = viewModelScope.launch {
+        saveNewsUseCase.execute(article)
     }
 }
